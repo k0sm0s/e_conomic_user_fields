@@ -1,5 +1,5 @@
 name = e-conomic user fields
-description = custom user fileds for e-conomic
+description = custom user fileds and role for e-conomic
 core = 7.x
 package = Features
 version = 7.x-1.0
@@ -19,3 +19,4 @@ features[field_instance][] = user-user-economic_city
 features[field_instance][] = user-user-economic_country
 features[field_instance][] = user-user-economic_name
 features[field_instance][] = user-user-economic_postalcode
+features[user_role][] = e-conomic user
