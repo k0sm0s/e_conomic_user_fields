@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the e-conomic user fields feature.
  */
+
+include_once 'e_conomic_user_fields.features.inc';
