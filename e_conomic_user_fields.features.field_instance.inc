@@ -10,6 +10,46 @@
 function e_conomic_user_fields_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-e_conomic_invoice-field_economic_invoice_accountid'
+  $field_instances['node-e_conomic_invoice-field_economic_invoice_accountid'] = array(
+    'bundle' => 'e_conomic_invoice',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_economic_invoice_accountid',
+    'label' => 'economic_invoice_accountid',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-e_conomic_invoice-field_economic_invoice_amount'
   $field_instances['node-e_conomic_invoice-field_economic_invoice_amount'] = array(
     'bundle' => 'e_conomic_invoice',
@@ -520,6 +560,7 @@ function e_conomic_user_fields_field_default_field_instances() {
   t('Country');
   t('Name');
   t('PostalCode');
+  t('economic_invoice_accountid');
   t('economic_invoice_amount');
   t('economic_invoice_balance');
   t('economic_invoice_date');
