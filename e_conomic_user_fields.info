@@ -7,6 +7,7 @@ project = e_conomic_user_fields
 dependencies[] = features
 dependencies[] = number
 dependencies[] = views
+dependencies[] = views_php
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[field_base][] = economic_address
