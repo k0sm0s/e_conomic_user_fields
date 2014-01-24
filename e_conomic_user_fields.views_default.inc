@@ -210,17 +210,58 @@ function e_conomic_user_fields_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'e_conomic_invoice' => 'e_conomic_invoice',
   );
+  /* Filter criterion: Global: PHP */
+  $handler->display->display_options['filters']['php']['id'] = 'php';
+  $handler->display->display_options['filters']['php']['table'] = 'views';
+  $handler->display->display_options['filters']['php']['field'] = 'php';
+  $handler->display->display_options['filters']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['filters']['php']['php_filter'] = 'global $user;
+$node = node_load($row->field_economic_invoice_accountid);
+  if (in_array(\'administrator\', array_values($user->roles))) {
+     return false;
+  }else{
+if($user->uid == $node->field_economic_invoice_accountid[\'und\'][0][\'value\']) return false;
+return true;
+}';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'user-invoice';
-  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Invoices';
   $handler->display->display_options['menu']['description'] = 'Invoices';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'user-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $translatables['user_invoice'] = array(
+    t('Master'),
+    t('User Invoices'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Title'),
+    t('accountid'),
+    t('serialnumber'),
+    t('date'),
+    t('entry'),
+    t('invoice'),
+    t('text'),
+    t('amount'),
+    t('balance'),
+    t('All'),
+    t('Page'),
+  );
   $export['user_invoice'] = $view;
 
   return $export;
