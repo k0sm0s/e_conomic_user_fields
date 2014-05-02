@@ -120,6 +120,7 @@ function e_conomic_user_fields_views_default_views() {
   $handler->display->display_options['fields']['field_economic_invoice_accountid']['table'] = 'field_data_field_economic_invoice_accountid';
   $handler->display->display_options['fields']['field_economic_invoice_accountid']['field'] = 'field_economic_invoice_accountid';
   $handler->display->display_options['fields']['field_economic_invoice_accountid']['label'] = 'accountid';
+  $handler->display->display_options['fields']['field_economic_invoice_accountid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_economic_invoice_accountid']['settings'] = array(
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
@@ -129,6 +130,7 @@ function e_conomic_user_fields_views_default_views() {
   $handler->display->display_options['fields']['field_economic_invoice_serialnum']['table'] = 'field_data_field_economic_invoice_serialnum';
   $handler->display->display_options['fields']['field_economic_invoice_serialnum']['field'] = 'field_economic_invoice_serialnum';
   $handler->display->display_options['fields']['field_economic_invoice_serialnum']['label'] = 'serialnumber';
+  $handler->display->display_options['fields']['field_economic_invoice_serialnum']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_economic_invoice_serialnum']['settings'] = array(
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
@@ -138,13 +140,20 @@ function e_conomic_user_fields_views_default_views() {
   $handler->display->display_options['fields']['field_economic_invoice_date']['table'] = 'field_data_field_economic_invoice_date';
   $handler->display->display_options['fields']['field_economic_invoice_date']['field'] = 'field_economic_invoice_date';
   $handler->display->display_options['fields']['field_economic_invoice_date']['label'] = 'date';
+  $handler->display->display_options['fields']['field_economic_invoice_date']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
   /* Field: Content: economic_invoice_entry */
   $handler->display->display_options['fields']['field_economic_invoice_entry']['id'] = 'field_economic_invoice_entry';
   $handler->display->display_options['fields']['field_economic_invoice_entry']['table'] = 'field_data_field_economic_invoice_entry';
   $handler->display->display_options['fields']['field_economic_invoice_entry']['field'] = 'field_economic_invoice_entry';
   $handler->display->display_options['fields']['field_economic_invoice_entry']['label'] = 'entry';
   $handler->display->display_options['fields']['field_economic_invoice_entry']['settings'] = array(
-    'thousand_separator' => ' ',
+    'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
   /* Field: Content: economic_invoice_invoice */
@@ -167,8 +176,8 @@ function e_conomic_user_fields_views_default_views() {
   $handler->display->display_options['fields']['field_economic_invoice_amount']['field'] = 'field_economic_invoice_amount';
   $handler->display->display_options['fields']['field_economic_invoice_amount']['label'] = 'amount';
   $handler->display->display_options['fields']['field_economic_invoice_amount']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
+    'thousand_separator' => '.',
+    'decimal_separator' => ',',
     'scale' => '2',
     'prefix_suffix' => 1,
   );
@@ -220,7 +229,8 @@ $node = node_load($row->field_economic_invoice_accountid);
   if (in_array(\'administrator\', array_values($user->roles))) {
      return false;
   }else{
-if($user->uid == $node->field_economic_invoice_accountid[\'und\'][0][\'value\']) return false;
+if(isset($user->field_economic_id))
+   if($user->field_economic_id[\'und\'][0][\'value\'] == $node->field_economic_invoice_accountid[\'und\'][0][\'value\']) return false;
 return true;
 }';
 
